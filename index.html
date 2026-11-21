@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="sr-ME">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pro Gym – Teretana u Bijelom Polju</title>
+<meta name="description" content="Pro Gym – fitness i teretana u Bijelom Polju. Slobodana Penezića, Bijelo Polje 84000. Radno vrijeme 09:00 – 22:00. Tel: 069 837 777.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e0f10; --ink-2:#17191b; --ink-3:#22252a;
+  --paper:#f1f0eb; --paper-2:#e4e2da;
+  --acid:#22e4f0; --acid-dark:#0fb3c2; --pink:#ff2e9a;
+  --muted:#8a8f96; --line:rgba(255,255,255,.12); --line-dark:rgba(0,0,0,.12);
+  --display:'Anton','Oswald',Impact,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --gutter:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--gutter)}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 32px;font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;border:1px solid currentColor;transition:transform .2s,background .2s,color .2s;cursor:pointer;background:none;color:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-acid{background:var(--acid);color:var(--ink);border-color:var(--acid)}
+.btn-acid:hover{background:#6ff0f8}
+.btn-light{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:99;background:var(--acid);padding:8px 12px}
+
+/* HEADER */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid var(--line)}
+header.solid{background:rgba(14,15,16,.92);backdrop-filter:blur(10px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;color:var(--paper)}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:26px;letter-spacing:.04em}
+.logo b{font-weight:400;color:var(--acid)}.logo i{font-style:normal;color:var(--pink)}
+.logo small{font-family:var(--mono);font-size:10px;letter-spacing:.14em;opacity:.6;align-self:flex-end;margin-bottom:5px}
+.menu{display:flex;gap:32px}
+.menu a{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.7;padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
+.menu a:hover,.menu a.active{opacity:1;border-color:var(--acid)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.lang{display:flex;font-family:var(--mono);font-size:12px;border:1px solid var(--line)}
+.lang button{background:none;border:0;color:var(--paper);padding:6px 10px;cursor:pointer;opacity:.55;font:inherit;letter-spacing:.12em}
+.lang button.on{background:var(--acid);color:var(--ink);opacity:1}
+.nav .btn{height:42px;padding:0 20px;font-size:12px}
+.burger{display:none;background:none;border:0;color:var(--paper);font-family:var(--mono);letter-spacing:.16em;font-size:12px;cursor:pointer;padding:10px 0}
+.mobile{display:none}
+@media(max-width:480px){.logo small{display:none}.lang button{padding:6px 7px}.nav-right{gap:12px}}
+@media(max-width:980px){
+  .menu,.nav-right .btn{display:none}
+  .burger{display:block}
+  .mobile{position:fixed;inset:72px 0 0;background:var(--ink);z-index:49;flex-direction:column;padding:32px var(--gutter);gap:8px;transform:translateY(-110%);transition:transform .35s}
+  .mobile.open{transform:none}
+  .mobile a{font-family:var(--display);font-size:44px;color:var(--paper);text-transform:uppercase;border-bottom:1px solid var(--line);padding:8px 0}
+  .mobile .btn{margin-top:24px;font-family:var(--mono);font-size:13px}
+  .mobile{display:flex}
+}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;color:var(--paper);display:flex;align-items:flex-end;padding:120px 0 120px;
+  background:linear-gradient(90deg,rgba(14,15,16,.92) 0%,rgba(14,15,16,.55) 55%,rgba(14,15,16,.3) 100%),url(img/neon-sala.jpg) center/cover,radial-gradient(circle at 75% 40%,#3b1a5a 0%,#111 60%);}
+.hero h1{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(64px,13vw,200px);line-height:.88;letter-spacing:-.005em}
+.hero h1 em{font-style:normal;color:var(--pink);display:block;text-shadow:0 0 40px rgba(255,46,154,.45)}
+.hero-meta{margin:28px 0 24px;opacity:.8}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-grid{display:grid;grid-template-columns:1fr auto;align-items:end;gap:32px}
+.hero-grid>*{min-width:0}
+html[lang=ru] .hero h1{font-size:clamp(44px,9.5vw,150px)}
+html[lang=ru] h2{font-size:clamp(36px,6vw,92px)}
+h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
+.stats{display:flex;flex-direction:column;gap:20px;text-align:right}
+.stat b{font-family:var(--display);font-weight:400;font-size:clamp(44px,5vw,72px);line-height:1;color:var(--acid);text-shadow:0 0 30px rgba(34,228,240,.4)}
+.stat span{display:block;margin-top:4px;opacity:.7}
+.slash{position:absolute;left:0;right:0;bottom:-1px;height:70px;background:var(--paper);clip-path:polygon(0 100%,100% 10%,100% 100%)}
+@media(max-width:780px){.hero-grid{grid-template-columns:1fr}.stats{flex-direction:row;text-align:left;gap:32px}.hero{padding-bottom:90px}}
+
+/* SECTION HEAD */
+section{padding:clamp(72px,10vw,140px) 0}
+.sec-label{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.sec-label i{font-style:normal;color:var(--acid-dark)}
+.dark .sec-label i{color:var(--acid)}
+.sec-label::after{content:"";flex:1;height:1px;background:var(--line-dark)}
+.dark .sec-label::after{background:var(--line)}
+h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(44px,7vw,104px);line-height:.92;margin-bottom:24px}
+.lead{max-width:620px;font-size:18px;color:#3c3f44}
+.dark{background:var(--ink);color:var(--paper)}
+.dark .lead{color:#b9bdc3}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;margin-top:56px}
+.card{background:#fff;padding:32px;border:1px solid var(--line-dark);position:relative;transition:transform .3s}
+.card:hover{transform:translateY(-6px) rotate(-.4deg)}
+.card h3{font-family:var(--display);font-weight:400;font-size:30px;text-transform:uppercase;line-height:1;margin:14px 0 12px}
+.card p{color:#4a4e54}
+.card .num{color:var(--muted)}
+.card.acid{background:var(--acid);border-color:var(--acid)}
+.card.acid p,.card.acid .num{color:#06363a}
+.card.pink{background:var(--pink);border-color:var(--pink);color:#fff}.card.pink p,.card.pink .num{color:#ffe3f1}
+.card.ink{background:var(--ink);color:var(--paper)}
+.card.ink p{color:#b9bdc3}
+.photo{min-height:280px;padding:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;color:var(--paper);background-size:cover;background-position:center}
+.photo figcaption{padding:16px 20px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+.c1{grid-column:span 4}.c2{grid-column:span 4}.c3{grid-column:span 4;grid-row:span 2}.c4{grid-column:span 5}.c5{grid-column:span 3}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr}.c1,.c2,.c3,.c4,.c5{grid-column:span 1;grid-row:auto}.c3{grid-column:span 2}}
+@media(max-width:560px){.why-grid{grid-template-columns:1fr}.c3{grid-column:span 1}}
+
+/* PRICING */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.plan{background:var(--ink-2);border:1px solid var(--line);padding:40px 36px;display:flex;flex-direction:column;position:relative}
+.plan.featured{background:var(--acid);color:var(--ink);border-color:var(--acid)}
+.plan .tag{position:absolute;top:-1px;right:-1px;background:var(--pink);color:#fff;padding:6px 12px}
+.plan h3{font-family:var(--display);font-weight:400;font-size:42px;text-transform:uppercase;line-height:1;margin:14px 0 24px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.plan.featured h3{border-color:rgba(0,0,0,.15)}
+.plan ul{list-style:none;display:grid;gap:10px;margin-bottom:32px}
+.plan li::before{content:"→ ";color:var(--acid)}
+.plan.featured li::before{color:var(--ink)}
+.price{display:flex;align-items:baseline;gap:8px;margin-top:auto;margin-bottom:28px}
+.price b{font-family:var(--display);font-weight:400;font-size:96px;line-height:.9;color:var(--acid)}
+.plan.featured .price b{color:var(--ink)}
+.plan .btn{width:100%}
+.plan.featured .btn{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.note{margin-top:28px;color:var(--muted)}
+@media(max-width:900px){.plans{grid-template-columns:1fr}}
+
+/* TICKER */
+.ticker-outer{overflow:hidden;padding:14px 0;margin:-14px 0;position:relative;z-index:2}
+.ticker{background:linear-gradient(90deg,var(--acid),var(--pink));color:var(--ink);overflow:hidden;padding:18px 0;transform:rotate(-1.2deg);margin:0 -20px}
+.ticker-track{display:flex;width:max-content;animation:scroll 28s linear infinite}
+.ticker span{font-family:var(--display);font-size:clamp(28px,3.4vw,44px);text-transform:uppercase;white-space:nowrap;padding:0 28px;display:flex;align-items:center;gap:56px}
+.ticker span::after{content:"✦";font-size:.6em}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:240px;gap:12px;margin-top:56px}
+.g{background:var(--ink-3) center/cover;position:relative;overflow:hidden}
+.g::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#2a2e33,#14161a);z-index:-1}
+.g span{position:absolute;left:14px;bottom:12px;color:var(--paper);background:rgba(14,15,16,.7);padding:4px 8px}
+.g.big{grid-column:span 2;grid-row:span 2}.g.tall{grid-row:span 2}.g.wide{grid-column:span 2}
+.gallery-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+@media(max-width:780px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.g.tall{grid-row:span 1}}
+
+/* NEWS */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.post{border-top:3px solid var(--ink);padding-top:20px;display:flex;flex-direction:column;gap:12px}
+.post .meta{display:flex;gap:16px;color:var(--muted)}
+.post .meta b{color:#fff;background:var(--pink);padding:0 6px;font-weight:500}
+.post h3{font-family:var(--display);font-weight:400;font-size:32px;text-transform:uppercase;line-height:1}
+.post p{color:#4a4e54}
+.post a{margin-top:auto;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid;align-self:flex-start}
+@media(max-width:900px){.news{grid-template-columns:1fr}}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;margin-top:40px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+label{display:grid;gap:8px}
+label.full{grid-column:span 2}
+input,textarea{background:var(--ink-2);border:1px solid var(--line);color:var(--paper);padding:18px;font:inherit;font-size:16px;outline:none;transition:border-color .2s}
+input:focus,textarea:focus{border-color:var(--acid)}
+textarea{min-height:140px;resize:vertical}
+.hp{position:absolute;left:-9999px}
+.form-foot{grid-column:span 2;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.form-msg{color:var(--acid)}
+.info{display:grid;gap:12px}
+.info-item{display:flex;align-items:center;gap:20px;padding:24px 28px;background:var(--ink-2);border:1px solid var(--line);transition:border-color .2s}
+a.info-item:hover{border-color:var(--acid)}
+.info-item svg{flex:none;width:24px;height:24px;stroke:var(--acid)}
+.info-item small{display:block;color:var(--muted)}
+.info-item strong{font-family:var(--display);font-weight:400;font-size:24px;letter-spacing:.02em;text-transform:uppercase}
+.info-item.call{background:var(--acid);color:var(--ink);border-color:var(--acid)}
+.info-item.call svg{stroke:var(--ink)}.info-item.call small{color:#06363a}
+.info-item.call strong{font-size:clamp(26px,3vw,38px)}
+.map{margin-top:48px;border:1px solid var(--line);position:relative;background:var(--ink-2)}
+.map iframe{display:block;width:100%;height:440px;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.8)}
+.map-link{position:absolute;right:16px;bottom:16px;height:46px;padding:0 20px;font-size:12px}
+@media(max-width:600px){.map iframe{height:340px}.map-link{left:16px}}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}form{grid-template-columns:1fr}label.full,.form-foot{grid-column:span 1}}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--paper);padding:80px 0 32px;border-top:1px solid var(--line)}
+.foot-big{font-family:var(--display);font-size:clamp(80px,18vw,260px);line-height:.8;text-transform:uppercase;color:var(--ink-3);margin-bottom:48px;user-select:none}
+.foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+.foot-grid small{display:block;color:var(--muted);margin-bottom:10px}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:24px;color:var(--muted)}
+@media(max-width:780px){.foot-grid{grid-template-columns:1fr 1fr}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Preskoči na sadržaj</a>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#pocetna" class="logo" aria-label="Pro Gym Bijelo Polje"><b>PRO</b><i>GYM</i><small>Bijelo Polje</small></a>
+    <nav class="menu" aria-label="Glavni meni">
+      <a href="#pocetna" data-i18n="nav.home">Početna</a>
+      <a href="#clanarine" data-i18n="nav.plans">Članarine</a>
+      <a href="#galerija" data-i18n="nav.gallery">Galerija</a>
+      <a href="#novosti" data-i18n="nav.news">Novosti</a>
+      <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Jezik">
+        <button data-lang="me" class="on">ME</button><button data-lang="en">EN</button><button data-lang="ru">RU</button><button data-lang="tr">TR</button>
+      </div>
+      <a href="#kontakt" class="btn btn-acid" data-i18n="cta.contact">Javi se</a>
+      <button class="burger" aria-expanded="false" aria-controls="mobile" data-i18n="nav.menu">Meni</button>
+    </div>
+  </div>
+</header>
+<nav class="mobile" id="mobile" aria-label="Mobilni meni">
+  <a href="#pocetna" data-i18n="nav.home">Početna</a>
+  <a href="#clanarine" data-i18n="nav.plans">Članarine</a>
+  <a href="#galerija" data-i18n="nav.gallery">Galerija</a>
+  <a href="#novosti" data-i18n="nav.news">Novosti</a>
+  <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+  <a href="tel:+38269837777" class="btn btn-acid" data-i18n="cta.call">Pozovi</a>
+</nav>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="pocetna">
+  <div class="wrap hero-grid">
+    <div>
+      <h1><span data-i18n="hero.l1">Treniraj</span><em data-i18n="hero.l2">u svjetlu.</em></h1>
+      <p class="hero-meta mono" data-i18n="hero.meta">Slobodana Penezića, Bijelo Polje · 09:00 — 22:00</p>
+      <div class="hero-cta">
+        <a href="#clanarine" class="btn btn-acid" data-i18n="cta.plans">Pogledaj članarine</a>
+        <a href="tel:+38269837777" class="btn btn-light" data-i18n="cta.call">Pozovi</a>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>09—22</b><span class="mono" data-i18n="stat.area">radno vrijeme</span></div>
+      <div class="stat"><b>@progymbp</b><span class="mono" data-i18n="stat.days">na Instagramu</span></div>
+    </div>
+  </div>
+  <div class="slash"></div>
+</section>
+
+<!-- WHY -->
+<section id="zasto">
+  <div class="wrap">
+    <div class="sec-label mono"><i>01</i><span data-i18n="why.label">Zašto Pro Gym</span></div>
+    <h2 class="reveal" data-i18n="why.title">Fitness &amp; gym u Bijelom Polju</h2>
+    <p class="lead reveal" data-i18n="why.lead">Pro Gym je teretana i fitness centar u Bijelom Polju, u ulici Slobodana Penezića, preko puta gasulhane. Moderne sprave, neonska atmosfera i radno vrijeme od 09:00 do 22:00.</p>
+    <div class="why-grid">
+      <article class="card acid c1 reveal"><span class="num mono">/01</span><h3 data-i18n="why.c1t">Moderne sprave</h3><p data-i18n="why.c1p">Sprave za svaku grupu mišića — od nogu i leđa do ruku i ramena.</p></article>
+      <article class="card c2 reveal"><span class="num mono">/02</span><h3 data-i18n="why.c2t">09:00 — 22:00</h3><p data-i18n="why.c2p">Treniraj kad tebi odgovara — prije posla, poslije posla ili uveče.</p></article>
+      <figure class="card photo c3 reveal" style="background-image:linear-gradient(transparent 40%,rgba(0,0,0,.5)),url(img/grafiti-zona.jpg),linear-gradient(160deg,#3b1a5a,#121314)"><figcaption class="mono" data-i18n="why.ph1">Neon &amp; grafiti zona</figcaption></figure>
+      <article class="card ink c4 reveal"><span class="num mono">/03</span><h3 data-i18n="why.c4t">Počinješ od nule?</h3><p data-i18n="why.c4p">Samo nas pitaj — pokazaćemo ti kako se koriste sprave i odakle da kreneš.</p></article>
+      <article class="card pink c5 reveal"><span class="num mono">/04</span><h3 data-i18n="why.c5t">Lako nas je naći</h3><p data-i18n="why.c5p">Preko puta gasulhane, u poslovnom objektu porodice Burdžović.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="dark" id="clanarine">
+  <div class="wrap">
+    <div class="sec-label mono"><i>02</i><span data-i18n="plans.label">Članarine</span></div>
+    <h2 class="reveal" data-i18n="plans.title">Jasne cijene.<br>Bez sitnih slova.</h2>
+    <div class="plans">
+      <article class="plan reveal">
+        <span class="mono" style="color:var(--muted)" data-i18n="plans.p1k">Jednokratno</span>
+        <h3 data-i18n="plans.p1t">Dnevna karta</h3>
+        <ul class="mono"><li data-i18n="plans.p1a">Jedan trening</li><li data-i18n="plans.p1b">Sve zone i sprave</li></ul>
+        <div class="price"><b>5</b><span class="mono">€</span></div>
+        <a href="#kontakt" class="btn" data-i18n="cta.join">Učlani se</a>
+      </article>
+      <article class="plan featured reveal">
+        <span class="tag mono" data-i18n="plans.pop">Najpopularnije</span>
+        <span class="mono" data-i18n="plans.p2k">Članarina 01</span>
+        <h3 data-i18n="plans.p2t">3x nedjeljno</h3>
+        <ul class="mono"><li data-i18n="plans.p2a">12 treninga mjesečno</li><li data-i18n="plans.p1b">Sve zone i sprave</li><li>09:00 — 22:00</li></ul>
+        <div class="price"><b>15</b><span class="mono" data-i18n="plans.mo">€ / mjesec</span></div>
+        <a href="#kontakt" class="btn" data-i18n="cta.join">Učlani se</a>
+      </article>
+      <article class="plan reveal">
+        <span class="mono" style="color:var(--muted)" data-i18n="plans.p3k">Članarina 02 · Neograničeno</span>
+        <h3 data-i18n="plans.p3t">Svaki dan</h3>
+        <ul class="mono"><li data-i18n="plans.p3a">Neograničen broj treninga</li><li data-i18n="plans.p1b">Sve zone i sprave</li><li>09:00 — 22:00</li></ul>
+        <div class="price"><b>25</b><span class="mono" data-i18n="plans.mo">€ / mjesec</span></div>
+        <a href="#kontakt" class="btn" data-i18n="cta.join">Učlani se</a>
+      </article>
+    </div>
+    <p class="note mono" data-i18n="plans.note">Cijene sa PDV-om. Bez upisnine. Otkaži kad hoćeš.</p>
+  </div>
+</section>
+
+<div class="ticker-outer" aria-hidden="true"><div class="ticker">
+  <div class="ticker-track">
+    <span data-i18n="ticker">Dnevna karta 5 €</span><span data-i18n="ticker2">3x nedjeljno 15 €</span><span data-i18n="ticker3">Svaki dan 25 €</span><span>@progymbp</span>
+    <span data-i18n="ticker">Dnevna karta 5 €</span><span data-i18n="ticker2">3x nedjeljno 15 €</span><span data-i18n="ticker3">Svaki dan 25 €</span><span>@progymbp</span>
+  </div>
+</div></div>
+
+<!-- GALLERY -->
+<section id="galerija">
+  <div class="wrap">
+    <div class="sec-label mono"><i>03</i><span data-i18n="gal.label">Galerija</span></div>
+    <div class="gallery-head">
+      <h2 class="reveal" data-i18n="gal.title">Gvožđe, znoj, ekipa</h2>
+      <a href="https://www.instagram.com/progymbp/" target="_blank" rel="noopener" class="mono" style="border-bottom:1px solid;margin-bottom:28px">@progymbp ↗</a>
+    </div>
+    <div class="gallery">
+      <figure class="g big reveal" style="background-image:url(img/neon-sala.jpg)"><span class="mono" data-i18n="gal.g1">Neon sala</span></figure>
+      <figure class="g tall reveal" style="background-image:url(img/heksagon.jpg)"><span class="mono" data-i18n="gal.g2">Heksagon svjetla</span></figure>
+      <figure class="g tall reveal" style="background-image:url(img/masine.jpg)"><span class="mono" data-i18n="gal.g3">Sprave</span></figure>
+      <figure class="g wide reveal" style="background-image:url(img/grafiti-zona.jpg)"><span class="mono" data-i18n="gal.g4">Grafiti zona</span></figure>
+      <figure class="g wide reveal" style="background-image:url(img/ulaz.jpg)"><span class="mono" data-i18n="gal.g5">Ulaz</span></figure>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="novosti" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-label mono"><i>04</i><span data-i18n="news.label">Oglasna tabla</span></div>
+    <h2 class="reveal" data-i18n="news.title">Novosti</h2>
+    <div class="news">
+      <article class="post reveal">
+        <div class="meta mono"><b data-i18n="news.t1">Otvaranje</b></div>
+        <h3 data-i18n="news.h1">Pro Gym je počeo sa radom</h3>
+        <p data-i18n="news.p1">Nova teretana u Bijelom Polju otvorila je vrata — dođi i pogledaj salu.</p>
+        <a href="#kontakt" data-i18n="news.more">Pročitaj →</a>
+      </article>
+      <article class="post reveal">
+        <div class="meta mono"><b data-i18n="news.t2">Sala</b></div>
+        <h3 data-i18n="news.h2">Neon, grafiti, heksagoni</h3>
+        <p data-i18n="news.p2">Sala je uređena da trening bude doživljaj — pogledaj galeriju.</p>
+        <a href="#kontakt" data-i18n="news.more">Pročitaj →</a>
+      </article>
+      <article class="post reveal">
+        <div class="meta mono"><b data-i18n="news.t3">Posao</b></div>
+        <h3 data-i18n="news.h3">Tražimo radnika/radnicu</h3>
+        <p data-i18n="news.p3">Teretani Pro Gym potreban je radnik/radnica. Javi se telefonom ili na Instagramu.</p>
+        <a href="#kontakt" data-i18n="news.more">Pročitaj →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="dark" id="kontakt">
+  <div class="wrap">
+    <div class="sec-label mono"><i>05</i><span data-i18n="nav.contact">Kontakt</span></div>
+    <h2 class="reveal" data-i18n="ct.title">Javi se</h2>
+    <p class="lead" data-i18n="ct.lead">Ostavi ime i broj — poruka stiže direktno na naš WhatsApp.</p>
+    <div class="contact-grid">
+      <form id="form" novalidate>
+        <label><span class="mono" data-i18n="ct.name">Ime i prezime</span><input name="ime" required autocomplete="name" placeholder="Marko Marković"></label>
+        <label><span class="mono" data-i18n="ct.phone">Telefon</span><input name="telefon" type="tel" required autocomplete="tel" placeholder="+382 6X XXX XXX"></label>
+        <label class="full"><span class="mono" data-i18n="ct.msg">Poruka</span><textarea name="poruka" data-i18n-ph="ct.msgph" placeholder="Šta te zanima?"></textarea></label>
+        <input class="hp" name="firma" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-foot">
+          <button class="btn btn-acid" type="submit" data-i18n="ct.send">Pošalji</button>
+          <span class="form-msg mono" role="status" id="formMsg"></span>
+        </div>
+      </form>
+      <div class="info">
+        <a class="info-item call" href="tel:+38269837777">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+          <div><small class="mono" data-i18n="ct.call">Pozovi nas</small><strong>069 837 777</strong></div>
+        </a>
+        <a class="info-item" href="https://www.instagram.com/progymbp/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg>
+          <div><small class="mono">Instagram</small><strong>@progymbp</strong></div>
+        </a>
+        <div class="info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div><small class="mono" data-i18n="ct.hours">Radno vrijeme</small><strong data-i18n="ct.h1">Svaki dan · 09:00 — 22:00</strong></div>
+        </div>
+        <a class="info-item" href="https://maps.app.goo.gl/H5ZingvCnxJ4tsNC9" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <div><small class="mono" data-i18n="ct.addr">Adresa</small><strong data-i18n="ct.addrv">Slobodana Penezića, Bijelo Polje 84000</strong></div>
+        </a>
+      </div>
+    </div>
+    <div class="map" id="map">
+      <iframe title="Pro Gym – Slobodana Penezića, Bijelo Polje 84000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=43.0370778,19.7499085&z=17&hl=sr&output=embed"></iframe>
+      <a class="btn btn-acid map-link" href="https://maps.app.goo.gl/H5ZingvCnxJ4tsNC9" target="_blank" rel="noopener" data-i18n="ct.mapbtn">Otvori u Google Maps ↗</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-big" aria-hidden="true">Pro Gym</div>
+    <div class="foot-grid">
+      <div><small class="mono" data-i18n="ct.addr">Adresa</small><span data-i18n="ct.addrv">Slobodana Penezića, Bijelo Polje 84000</span></div>
+      <div><small class="mono" data-i18n="ct.hours">Radno vrijeme</small><span data-i18n="ct.h1">Svaki dan · 09:00 — 22:00</span></div>
+      <div><small class="mono" data-i18n="ct.call">Pozovi nas</small><a href="tel:+38269837777">069 837 777</a></div>
+      <div><small class="mono">Instagram</small><a href="https://www.instagram.com/progymbp/" target="_blank" rel="noopener">@progymbp</a></div>
+    </div>
+    <div class="foot-bottom mono"><span>© Pro Gym Bijelo Polje <span id="year">2026</span></span><a href="#top" data-i18n="foot.top">Nazad na vrh ↑</a></div>
+  </div>
+</footer>
+
+<script>
+/* ===== Podesavanja: ovdje promijeni email na koji stizu poruke iz forme ===== */
+const WHATSAPP = '38269837777';   // broj bez + i razmaka
+
+const EN = {
+ 'nav.home':'Home','nav.plans':'Memberships','nav.gallery':'Gallery','nav.news':'News','nav.contact':'Contact','nav.menu':'Menu',
+ 'cta.contact':'Contact us','cta.call':'Call','cta.plans':'See memberships','cta.join':'Join now',
+ 'hero.l1':'Train','hero.l2':'in the light.','hero.meta':'Slobodana Penezića, Bijelo Polje · 09:00 — 22:00',
+ 'stat.area':'opening hours','stat.days':'on Instagram',
+ 'why.label':'Why Pro Gym','why.title':'Fitness &amp; gym in Bijelo Polje',
+ 'why.lead':'Pro Gym is a gym and fitness center in Bijelo Polje, on Slobodana Penezića street, across from the gas station. Modern machines, neon atmosphere and open 09:00 to 22:00.',
+ 'why.c1t':'Modern machines','why.c1p':'Machines for every muscle group — legs, back, arms and shoulders.',
+ 'why.c2t':'09:00 — 22:00','why.c2p':'Train when it suits you — before work, after work or in the evening.',
+ 'why.ph1':'Neon &amp; graffiti zone','why.c4t':'Starting from zero?','why.c4p':'Just ask — we will show you how the machines work and where to start.',
+ 'why.c5t':'Easy to find','why.c5p':'Across from the gas station, in the Burdžović family commercial building.',
+ 'plans.label':'Memberships','plans.title':'Clear prices.<br>No fine print.','plans.p1k':'One-off','plans.p1t':'Day pass','plans.p1a':'One session','plans.p1b':'All zones and equipment',
+ 'plans.pop':'Most popular','plans.p2k':'Membership 01','plans.p2t':'3x a week','plans.p2a':'12 sessions a month','plans.mo':'€ / month',
+ 'plans.p3k':'Membership 02 · Unlimited','plans.p3t':'Every day','plans.p3a':'Unlimited sessions','plans.note':'VAT included. No sign-up fee. Cancel anytime.',
+ 'ticker':'Day pass 5 €','ticker2':'3x a week 15 €','ticker3':'Every day 25 €',
+ 'gal.label':'Gallery','gal.title':'Iron, sweat, crew','gal.g1':'Neon hall','gal.g2':'Hexagon lights','gal.g3':'Machines','gal.g4':'Graffiti zone','gal.g5':'Entrance',
+ 'news.label':'Noticeboard','news.title':'News','news.t1':'Opening','news.h1':'Pro Gym is open','news.p1':'A new gym in Bijelo Polje has opened its doors — come and see the hall.',
+ 'news.t2':'The hall','news.h2':'Neon, graffiti, hexagons','news.p2':'The hall is designed to make training an experience — check the gallery.',
+ 'news.t3':'Jobs','news.h3':'We are hiring','news.p3':'Pro Gym is looking for a staff member. Get in touch by phone or on Instagram.','news.more':'Read →',
+ 'ct.title':'Get in touch','ct.lead':'Leave your name and number — the message goes straight to our WhatsApp.','ct.name':'Full name','ct.phone':'Phone','ct.msg':'Message','ct.msgph':'What would you like to know?','ct.send':'Send',
+ 'ct.call':'Call us','ct.hours':'Opening hours','ct.h1':'Every day · 09:00 — 22:00','ct.addr':'Address','ct.addrv':'Slobodana Penezića, Bijelo Polje 84000',
+ 'ct.mapbtn':'Open in Google Maps ↗',
+ 'foot.top':'Back to top ↑',
+ 'form.err':'Please enter your name and phone.','form.ok':'Opening WhatsApp…'
+};
+const RU = {"nav.home": "Главная", "nav.plans": "Абонементы", "nav.gallery": "Галерея", "nav.news": "Новости", "nav.contact": "Контакты", "nav.menu": "Меню", "cta.contact": "Связаться", "cta.call": "Позвонить", "cta.plans": "Абонементы", "cta.join": "Записаться", "hero.l1": "Тренируйся", "hero.l2": "в свете.", "hero.meta": "Слободана Пенезича, Биело-Поле · 09:00 — 22:00", "stat.area": "часы работы", "stat.days": "в Instagram", "why.label": "Почему Pro Gym", "why.title": "Фитнес и тренажёрный зал в Биело-Поле", "why.lead": "Pro Gym — тренажёрный зал и фитнес-центр в Биело-Поле, на улице Слободана Пенезича, напротив заправки. Современные тренажёры, неоновая атмосфера, работаем с 09:00 до 22:00.", "why.c1t": "Современные тренажёры", "why.c1p": "Тренажёры для всех групп мышц — ноги, спина, руки и плечи.", "why.c2t": "09:00 — 22:00", "why.c2p": "Тренируйся когда удобно — до работы, после работы или вечером.", "why.ph1": "Неон и граффити", "why.c4t": "Начинаешь с нуля?", "why.c4p": "Просто спроси — покажем, как работают тренажёры и с чего начать.", "why.c5t": "Легко найти", "why.c5p": "Напротив заправки, в торговом здании семьи Бурджович.", "plans.label": "Абонементы", "plans.title": "Понятные цены.<br>Без мелкого шрифта.", "plans.p1k": "Разово", "plans.p1t": "Разовое посещение", "plans.p1a": "Одна тренировка", "plans.p1b": "Все зоны и тренажёры", "plans.pop": "Самый популярный", "plans.p2k": "Абонемент 01", "plans.p2t": "3 раза в неделю", "plans.p2a": "12 тренировок в месяц", "plans.mo": "€ / месяц", "plans.p3k": "Абонемент 02 · Безлимит", "plans.p3t": "Каждый день", "plans.p3a": "Неограниченное число тренировок", "plans.note": "Цены с НДС. Без вступительного взноса. Отмена в любое время.", "ticker": "Разовое посещение 5 €", "ticker2": "3 раза в неделю 15 €", "ticker3": "Каждый день 25 €", "gal.label": "Галерея", "gal.title": "Железо, пот, команда", "gal.g1": "Неоновый зал", "gal.g2": "Шестиугольные лампы", "gal.g3": "Тренажёры", "gal.g4": "Зона граффити", "gal.g5": "Вход", "news.label": "Доска объявлений", "news.title": "Новости", "news.t1": "Открытие", "news.h1": "Pro Gym открыт", "news.p1": "Новый тренажёрный зал в Биело-Поле открыл свои двери — приходи посмотреть.", "news.t2": "Зал", "news.h2": "Неон, граффити, шестиугольники", "news.p2": "Зал создан, чтобы тренировка стала впечатлением — загляни в галерею.", "news.t3": "Вакансия", "news.h3": "Мы ищем сотрудника", "news.p3": "Pro Gym ищет сотрудника. Свяжитесь с нами по телефону или в Instagram.", "news.more": "Читать →", "ct.title": "Напиши нам", "ct.lead": "Оставь имя и номер — сообщение придёт прямо к нам в WhatsApp.", "ct.name": "Имя и фамилия", "ct.phone": "Телефон", "ct.msg": "Сообщение", "ct.msgph": "Что хочешь узнать?", "ct.send": "Отправить", "ct.call": "Позвони нам", "ct.hours": "Часы работы", "ct.h1": "Каждый день · 09:00 — 22:00", "ct.addr": "Адрес", "ct.addrv": "Слободана Пенезича, Биело-Поле 84000", "ct.mapbtn": "Открыть в Google Maps ↗", "foot.top": "Наверх ↑", "form.err": "Введи имя и телефон.", "form.ok": "Открываем WhatsApp…"};
+const TR = {"nav.home": "Ana sayfa", "nav.plans": "Üyelikler", "nav.gallery": "Galeri", "nav.news": "Haberler", "nav.contact": "İletişim", "nav.menu": "Menü", "cta.contact": "Bize ulaşın", "cta.call": "Ara", "cta.plans": "Üyelikleri gör", "cta.join": "Üye ol", "hero.l1": "Işıkta", "hero.l2": "antrenman yap.", "hero.meta": "Slobodana Penezića, Bijelo Polje · 09:00 — 22:00", "stat.area": "çalışma saatleri", "stat.days": "Instagram’da", "why.label": "Neden Pro Gym", "why.title": "Bijelo Polje’de fitness ve spor salonu", "why.lead": "Pro Gym, Bijelo Polje’de Slobodana Penezića caddesinde, benzin istasyonunun karşısında bir spor salonu ve fitness merkezidir. Modern aletler, neon atmosfer ve 09:00 – 22:00 arası açık.", "why.c1t": "Modern aletler", "why.c1p": "Her kas grubu için aletler — bacak, sırt, kol ve omuz.", "why.c2t": "09:00 — 22:00", "why.c2p": "Sana uygun saatte antrenman yap — işten önce, işten sonra ya da akşam.", "why.ph1": "Neon ve grafiti alanı", "why.c4t": "Sıfırdan mı başlıyorsun?", "why.c4p": "Sadece sor — aletlerin nasıl çalıştığını ve nereden başlayacağını gösterelim.", "why.c5t": "Kolay bulunur", "why.c5p": "Benzin istasyonunun karşısında, Burdžović ailesinin ticari binasında.", "plans.label": "Üyelikler", "plans.title": "Net fiyatlar.<br>Gizli madde yok.", "plans.p1k": "Tek seferlik", "plans.p1t": "Günlük giriş", "plans.p1a": "Bir antrenman", "plans.p1b": "Tüm alanlar ve aletler", "plans.pop": "En popüler", "plans.p2k": "Üyelik 01", "plans.p2t": "Haftada 3 gün", "plans.p2a": "Ayda 12 antrenman", "plans.mo": "€ / ay", "plans.p3k": "Üyelik 02 · Sınırsız", "plans.p3t": "Her gün", "plans.p3a": "Sınırsız antrenman", "plans.note": "Fiyatlara KDV dahildir. Kayıt ücreti yok. İstediğin zaman iptal et.", "ticker": "Günlük giriş 5 €", "ticker2": "Haftada 3 gün 15 €", "ticker3": "Her gün 25 €", "gal.label": "Galeri", "gal.title": "Demir, ter, ekip", "gal.g1": "Neon salon", "gal.g2": "Altıgen ışıklar", "gal.g3": "Aletler", "gal.g4": "Grafiti alanı", "gal.g5": "Giriş", "news.label": "Duyurular", "news.title": "Haberler", "news.t1": "Açılış", "news.h1": "Pro Gym açıldı", "news.p1": "Bijelo Polje’de yeni bir spor salonu kapılarını açtı — gel, salonu gör.", "news.t2": "Salon", "news.h2": "Neon, grafiti, altıgenler", "news.p2": "Salon, antrenmanı bir deneyime dönüştürmek için tasarlandı — galeriye göz at.", "news.t3": "İş ilanı", "news.h3": "Eleman arıyoruz", "news.p3": "Pro Gym bir çalışan arıyor. Telefonla veya Instagram’dan bize ulaşın.", "news.more": "Oku →", "ct.title": "Bize yaz", "ct.lead": "Adını ve numaranı bırak — mesaj doğrudan WhatsApp’ımıza gelir.", "ct.name": "Ad soyad", "ct.phone": "Telefon", "ct.msg": "Mesaj", "ct.msgph": "Ne öğrenmek istersin?", "ct.send": "Gönder", "ct.call": "Bizi ara", "ct.hours": "Çalışma saatleri", "ct.h1": "Her gün · 09:00 — 22:00", "ct.addr": "Adres", "ct.addrv": "Slobodana Penezića, Bijelo Polje 84000", "ct.mapbtn": "Google Maps’te aç ↗", "foot.top": "Başa dön ↑", "form.err": "Lütfen adını ve telefonunu gir.", "form.ok": "WhatsApp açılıyor…"};
+const ME = {'form.err':'Unesi ime i telefon.','form.ok':'Otvaramo WhatsApp…'};
+const DICT = {me:ME, en:EN, ru:RU, tr:TR};
+const HTML_LANG = {me:'sr-ME', en:'en', ru:'ru', tr:'tr'};
+let lang = 'me';
+try{ lang = localStorage.getItem('lang') || 'me'; }catch(e){}
+if(!DICT[lang]) lang='me';
+
+function t(k){ return DICT[lang][k] || ME[k] || ''; }
+function setLang(l){
+  if(!DICT[l]) l='me';
+  lang=l; document.documentElement.lang = HTML_LANG[l];
+  const D = DICT[l];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    if(el.dataset.me===undefined) el.dataset.me = el.innerHTML;
+    const k=el.dataset.i18n; el.innerHTML = l!=='me' && D[k] ? D[k] : el.dataset.me;
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    if(el.dataset.meph===undefined) el.dataset.meph = el.placeholder;
+    const k=el.dataset.i18nPh; el.placeholder = l!=='me' && D[k] ? D[k] : el.dataset.meph;
+  });
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+  try{ localStorage.setItem('lang',l); }catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+if(lang!=='me') setLang(lang);
+
+/* header + aktivni link */
+const header=document.querySelector('header');
+const links=[...document.querySelectorAll('.menu a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{
+  header.classList.toggle('solid',scrollY>40);
+  let cur=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<200) cur=i; });
+  links.forEach((a,i)=>a.classList.toggle('active',i===cur));
+},{passive:true});
+
+/* mobilni meni */
+const burger=document.querySelector('.burger'), mob=document.getElementById('mobile');
+burger.onclick=()=>{ const o=mob.classList.toggle('open'); burger.setAttribute('aria-expanded',o); };
+mob.querySelectorAll('a').forEach(a=>a.onclick=()=>{ mob.classList.remove('open'); burger.setAttribute('aria-expanded',false); });
+
+/* animacija pri skrolu */
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* forma -> otvara WhatsApp sa porukom (bez servera) */
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault(); const f=e.target, msg=document.getElementById('formMsg');
+  if(f.firma.value) return;
+  if(!f.ime.value.trim()||!f.telefon.value.trim()){ msg.textContent=t('form.err'); return; }
+  const body=`Ime: ${f.ime.value}\nTelefon: ${f.telefon.value}\n\n${f.poruka.value}`;
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Upit sa sajta\n'+body)}`,'_blank');
+  msg.textContent=t('form.ok');
+});
+
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
