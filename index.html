@@ -37,6 +37,11 @@ header.solid{background:rgba(14,15,16,.92);backdrop-filter:blur(10px)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px;color:var(--paper)}
 .logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:26px;letter-spacing:.04em}
 .logo b{font-weight:400;color:var(--acid)}.logo i{font-style:normal;color:var(--pink)}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.open-pill{display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 12px 0 10px;border-radius:99px;background:rgba(14,15,16,.75);border:1px solid var(--line);color:var(--paper);font-family:var(--body);font-weight:600;font-size:12px;white-space:nowrap}
+.open-pill i{width:8px;height:8px;border-radius:50%;background:#2fd36b;box-shadow:0 0 0 3px rgba(47,211,107,.18),0 0 10px rgba(47,211,107,.7)}
+.open-pill.closed i{background:#f0a23d;box-shadow:0 0 0 3px rgba(240,162,61,.18)}
+@media(max-width:360px){.open-pill{display:none}}
 .logo small{font-family:var(--mono);font-size:10px;letter-spacing:.14em;opacity:.6;align-self:flex-end;margin-bottom:5px}
 .menu{display:flex;gap:32px}
 .menu a{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.7;padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
@@ -211,7 +216,7 @@ footer{background:var(--ink);color:var(--paper);padding:80px 0 32px;border-top:1
 
 <header id="top">
   <div class="wrap nav">
-    <a href="#pocetna" class="logo" aria-label="Pro Gym Bijelo Polje"><b>PRO</b><i>GYM</i><small>Bijelo Polje</small></a>
+    <div class="brand"><a href="#pocetna" class="logo" aria-label="Pro Gym Bijelo Polje"><b>PRO</b><i>GYM</i><small>Bijelo Polje</small></a><span class="open-pill" id="openPill" role="status"><i aria-hidden="true"></i><span>do 22:00</span></span></div>
     <nav class="menu" aria-label="Glavni meni">
       <a href="#pocetna" data-i18n="nav.home">Početna</a>
       <a href="#clanarine" data-i18n="nav.plans">Članarine</a>
@@ -486,6 +491,7 @@ function setLang(l){
   const cur=document.querySelector('.lang-menu button[data-lang="'+l+'"]');
   if(cur) document.querySelector('.lang-cur').innerHTML=cur.querySelector('.flag').outerHTML+'<span>'+l.toUpperCase()+'</span>';
   try{ localStorage.setItem('lang',l); }catch(e){}
+  if(typeof openNow==='function') openNow();
 }
 /* padajuci meni za jezike */
 const langT=document.querySelector('.lang-toggle'), langM=document.getElementById('langMenu');
@@ -500,7 +506,25 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='ArrowDown'){ e.preventDefault(); items[(i+1)%items.length].focus(); }
   else if(e.key==='ArrowUp'){ e.preventDefault(); items[(i-1+items.length)%items.length].focus(); }
 });
+
+/* oznaka otvoreno / zatvoreno (vrijeme u Crnoj Gori) */
+function openNow(){
+  let h,m;
+  try{ const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Podgorica',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+       h=+p.find(x=>x.type==='hour').value%24; m=+p.find(x=>x.type==='minute').value; }
+  catch(e){ const d=new Date(); h=d.getHours(); m=d.getMinutes(); }
+  const open=h>=9&&h<22;
+  const L={me:['do 22:00','od 09:00','Otvoreno do 22:00','Zatvoreno – otvaramo u 09:00'],
+           en:['until 22:00','opens 09:00','Open until 22:00','Closed – opens at 09:00'],
+           ru:['до 22:00','с 09:00','Открыто до 22:00','Закрыто – откроемся в 09:00'],
+           tr:['22:00’a kadar','09:00’da açılır','22:00’a kadar açık','Kapalı – 09:00’da açılır']}[lang]||[];
+  const el=document.getElementById('openPill');
+  el.classList.toggle('closed',!open);
+  el.querySelector('span').textContent=open?L[0]:L[1];
+  el.title=open?L[2]:L[3]; el.setAttribute('aria-label',el.title);
+}
 if(lang!=='me') setLang(lang);
+openNow(); setInterval(openNow,60000);
 
 /* header + aktivni link */
 const header=document.querySelector('header');
