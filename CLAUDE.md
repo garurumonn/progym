@@ -20,8 +20,10 @@ Statički sajt bez build koraka. Cloudflare Pages ga objavljuje direktno iz `mai
 - Adresa: Slobodana Penezića, preko puta gasulhane, 84000 Bijelo Polje (poslovni objekat porodice Burdžović)
 - Telefon / WhatsApp: 069 837 777 (`38269837777`, konstanta `WHATSAPP` u skripti; forma otvara WhatsApp)
 - Instagram: @progymbp
-- Radno vrijeme: svaki dan 09:00–22:00
-  (oznaka `#openPill` pored logoa: zeleno „do 22:00“ / narandžasto „od 09:00“, funkcija `openNow()`, vrijeme Europe/Podgorica)
+- Radno vrijeme: ponedjeljak–subota 09:00–22:00, **nedjeljom zatvoreno**
+  (oznaka `#openPill` pored logoa: zeleno „do 22:00“ / narandžasto „od 09:00“, a subotom poslije 22h i nedjeljom
+  „pon od 09:00“; funkcija `openNow()`, vrijeme Europe/Podgorica)
+  Radno vrijeme se pominje u: meta opisu, `hero.meta`, `stat.area`, `why.lead`, `why.c2p`, `plans.hrs`, `ct.h1`.
 - Cijene: dnevna karta 5 €, 3× nedjeljno 15 €/mjesec, svaki dan 25 €/mjesec, bez upisnine
   (cijene su u sekciji „Članarine“ i u pokretnoj traci `ticker` – u HTML-u i u sva 3 prevoda)
 
